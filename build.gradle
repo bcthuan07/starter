@@ -9,6 +9,9 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
         classpath('io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE')
     }
+    configurations {
+        compile.exclude module: "spring-boot-starter-tomcat"
+    }
 }
 
 apply plugin: 'java'
@@ -34,6 +37,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile("org.springframework.boot:spring-boot-starter-undertow")
     compile('com.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test') 
 }
